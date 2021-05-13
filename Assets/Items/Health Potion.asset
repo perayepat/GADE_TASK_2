@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tree Sap
   discription: 'A item used to heal yourself '
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 2746bd2da79ba4f428bcd455cf9ff31c, type: 3}
   fatigue: 1
   adrenaline: 1
   health: 5
