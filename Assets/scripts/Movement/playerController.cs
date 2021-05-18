@@ -12,10 +12,11 @@ public class playerController : MonoBehaviour
     public KeyCode right;
     public KeyCode up;
     public KeyCode down;
-
+    private Inventory inventory;
 
     private void Start()
     {
+        inventory = new Inventory();
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()

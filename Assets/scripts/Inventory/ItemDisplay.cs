@@ -17,6 +17,7 @@ public class ItemDisplay : MonoBehaviour
 
     void Start()
     {
+        
         nameTxt.text = item.name;
         descripTxt.text = item.discription;
         artWrk.sprite = item.image;
