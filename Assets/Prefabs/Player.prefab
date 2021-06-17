@@ -94,3 +94,11 @@ MonoBehaviour:
   maxHealth: 100
   damage: 12
   block: 20
+  fatigue: 0
+  maxFatigue: 100
+  adrenaline: 0
+  maxAdrenaline: 100
+  attackCounter: 0
+  boostCounter: 3
+  healingCounter: 0
+  turnCounter: 0

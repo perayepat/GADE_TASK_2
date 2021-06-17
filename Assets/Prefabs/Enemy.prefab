@@ -88,9 +88,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4582d56f58b497a8a6932e88f68fab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Brackeys
-  level: 902
+  unitName: OverTime
+  level: 10
   health: 100
   maxHealth: 100
-  damage: 16
+  damage: 10
   block: 10
+  fatigue: 0
+  maxFatigue: 100
+  adrenaline: 0
+  maxAdrenaline: 100
+  attackCounter: 0
+  boostCounter: 0
+  healingCounter: 3
