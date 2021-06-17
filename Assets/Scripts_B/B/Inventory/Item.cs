@@ -9,11 +9,15 @@ public class Item : ScriptableObject
 {
     public enum ItemType
     {
-        Sword,
+        Strength,
         HealthPotion,
         FatiguePotion,
-        Coin,
-    }; 
+        Speed,
+        StealAdrenalline,
+        BloodShot,
+        Bane,
+        Revenge
+    }
     public ItemType itemType;
 
     public new string name;
@@ -30,10 +34,10 @@ public class Item : ScriptableObject
         switch (itemType)
         {
             default:
-            case ItemType.Sword: return ItemAssets.Instance.swordSprite;
+            case ItemType.Strength: return ItemAssets.Instance.swordSprite;
             case ItemType.HealthPotion: return ItemAssets.Instance.healthPotionSprite;
             case ItemType.FatiguePotion: return ItemAssets.Instance.fatiguePotionSprite;
-            case ItemType.Coin: return ItemAssets.Instance.coinSprite;   
+            case ItemType.Speed: return ItemAssets.Instance.coinSprite;   
         }
     }
 

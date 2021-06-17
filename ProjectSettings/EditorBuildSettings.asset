@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scene/Task One.unity
     guid: 108e0aefab10d0b4596b9777abf22957
   - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: 05058a335defbf94f9e8175d97c75b13
+  - enabled: 1
     path: Assets/Scene/Battle.unity
     guid: 1d79a9256dee7ce4f80cda3a2016d588
   m_configObjects: {}

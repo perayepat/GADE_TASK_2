@@ -1,8 +1,9 @@
 using System.Collections;
+using UnityEngine;
 
 namespace m.m.TurnBasedGame
 {
-    public abstract class State
+    public abstract class State : MonoBehaviour
     {
         /// <summary>
         /// passing in the battle system using a constructor to be able to access it in other classes 
@@ -18,7 +19,12 @@ namespace m.m.TurnBasedGame
         {
             yield break;
         }
-        
+
+        private void Update()
+        {
+
+        }
+
         public virtual IEnumerator Attack()
         {
             yield break;
@@ -39,6 +45,25 @@ namespace m.m.TurnBasedGame
             yield break;
         }
         public virtual IEnumerator Blocking()
+        {
+            yield break;
+        }
+
+        public virtual IEnumerator Resting()
+        {
+            yield break;
+        }
+
+        public virtual IEnumerator Stacking()
+        {
+            yield break;
+        }
+
+        public virtual IEnumerator Sapping()
+        {
+            yield break;
+        }
+        public virtual IEnumerator UseItem()
         {
             yield break;
         }

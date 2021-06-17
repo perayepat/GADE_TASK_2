@@ -3,13 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BattleTransition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool isAlone;
+     public GameObject buttons,bTwo;
+    private int onAndOffTing;
+    
+
     void Start()
     {
-        
+        onAndOffTing = 1;
     }
 
     // Update is called once per frame
@@ -20,13 +25,38 @@ public class BattleTransition : MonoBehaviour
             onExitButton();
         }
     }
+    public void OnAloneButton()
+    {
+        //this is ai in abled 
+        isAlone = true;
+    }
+    public void OnMultiButton()
+    {
+        isAlone = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player1"))
+        if (isAlone == false)
         {
-            StartCoroutine(SwitchScnes("Battle"));
+            if (collision.CompareTag("Player1"))
+            {
+                StartCoroutine(SwitchScnes("Battle"));
+            }
         }
+        else
+        {
+            if (collision.CompareTag("Player1"))
+            {
+                StartCoroutine(SwitchScnes("Demo"));
+            }
+        }
+       
+    }
+    public void OnStartButton()
+    {
+
+        StartCoroutine(SwitchScnes("Demo"));
     }
     IEnumerator SwitchScnes(string sceneName)
     {
@@ -35,6 +65,17 @@ public class BattleTransition : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+
+    public void OnAndOff()
+    {
+        onAndOffTing++;
+        buttons.active = false;
+        bTwo.active = false;
+        if (onAndOffTing % 2 == 0)
+        {
+            buttons.active = true;
+        }
+    }
     public void onExitButton()
     {
         Application.Quit();
