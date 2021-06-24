@@ -10,13 +10,16 @@ namespace m.m.TurnBasedGame
         [SerializeField] private UnitHUD playerHUD, enemyHUD;
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject enemyAiPrefab;
         [SerializeField] private Transform playerPosition;
         [SerializeField] private Transform enemyPosition;
         public GameObject itemsPanel;
         private int onAndOffTing = 1;
         private Unit _playerUnit;
         private Unit _enemyUnit;
+        private Unit _aiAgainstAi;
         private State _currentState;
+        private EnemyTurnState _enemyTurnState;
         private Setdifficulty setdifficulty;
 
         public UnitHUD PlayerHUD
@@ -35,6 +38,7 @@ namespace m.m.TurnBasedGame
 
         public Unit PlayerUnit => _playerUnit;
         public Unit EnemyUnit => _enemyUnit;
+        public Unit EnemyAIUnit => _aiAgainstAi;
         public HUD HUD => hud;
 
         public Setdifficulty Setdifficulty => setdifficulty;
@@ -45,6 +49,7 @@ namespace m.m.TurnBasedGame
             //making running each states start easier from other classes 
             _currentState = state;
             StartCoroutine(_currentState.Start());
+          
         }
 
         [ContextMenu("Pause")]
@@ -105,6 +110,9 @@ namespace m.m.TurnBasedGame
         
             var enemyGameObject = Instantiate(enemyPrefab, enemyPosition);
             _enemyUnit = enemyGameObject.GetComponent<Unit>();
+
+            var enemyAIUnitGameObject = Instantiate(enemyAiPrefab, playerPosition);
+            _aiAgainstAi = enemyAIUnitGameObject.GetComponent<Unit>();
 
             hud.Initialize(_playerUnit, _enemyUnit);
             

@@ -15,6 +15,39 @@ namespace m.m.TurnBasedGame
         public override IEnumerator Start()
         {
             battleSystem.HUD.SetDialogText("Choose an action.");
+            var isDead = battleSystem.EnemyUnit.TakeDamage(battleSystem.PlayerUnit.Damage);
+            if (battleSystem.EnemyUnit.blocking == true)
+            {
+                isDead = battleSystem.EnemyUnit.isBlocking(battleSystem.PlayerUnit.Damage, battleSystem.EnemyUnit.Block);
+                battleSystem.HUD.SetDialogText($"{battleSystem.EnemyUnit.Name} Blocked your attack ");
+                battleSystem.EnemyUnit.blocking = false;
+                battleSystem.PlayerUnit.AddAdrenaline(10);
+            }
+            else
+            {
+                battleSystem.PlayerUnit.AddAdrenaline(10);
+                isDead = battleSystem.EnemyUnit.TakeDamage(battleSystem.PlayerUnit.Damage);
+                battleSystem.HUD.SetDialogText($"{battleSystem.PlayerUnit.Name} Attacks ");
+
+            }
+
+            //preventing blocking and attacking as a way 
+            if (blockCount == 1)
+            {
+                battleSystem.PlayerUnit.blocking = false;
+                blockCount = 0;
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            if (isDead)
+            {
+                battleSystem.SetState(new WonState(battleSystem));
+            }
+            else
+            {
+                battleSystem.SetState(new EnemyTurnState(battleSystem));
+            }
             yield break;
         }
         //moved from the battle system 

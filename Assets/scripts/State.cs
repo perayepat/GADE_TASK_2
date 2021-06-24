@@ -24,6 +24,10 @@ namespace m.m.TurnBasedGame
         {
 
         }
+        public virtual IEnumerator AIBased()
+        {
+            yield break;
+        }
 
         public virtual IEnumerator Attack()
         {

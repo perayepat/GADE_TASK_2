@@ -34,8 +34,8 @@ namespace m.m.TurnBasedGame
 
         public override IEnumerator Start()
         {
-            
-          
+
+            _enemy = enemy.EASY;
             switch (_enemy)
             {
                 case enemy.HARD:
