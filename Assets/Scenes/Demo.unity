@@ -3405,6 +3405,7 @@ MonoBehaviour:
   enemyHUD: {fileID: 3507341780421328138}
   playerPrefab: {fileID: 2258237836305513565, guid: 1052f1f29ca531644953d9b2d1a809b3, type: 3}
   enemyPrefab: {fileID: 1099047277363257685, guid: 1b07d8f6f0879f1428c623f6e69ed8cb, type: 3}
+  enemyAiPrefab: {fileID: 1099047277363257685, guid: f460178bfdf93f04e84ff3340da0b5a2, type: 3}
   playerPosition: {fileID: 619215400}
   enemyPosition: {fileID: 1327472108}
   itemsPanel: {fileID: 1376842207}
