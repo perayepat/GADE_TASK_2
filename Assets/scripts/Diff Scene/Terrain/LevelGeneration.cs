@@ -27,8 +27,8 @@ public class LevelGeneration : MonoBehaviour
     public LayerMask room;
 
     int downCounter;
-   
 
+     
 
 
 
