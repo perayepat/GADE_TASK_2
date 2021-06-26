@@ -114,7 +114,7 @@ namespace m.m.TurnBasedGame
             var enemyAIUnitGameObject = Instantiate(enemyAiPrefab, playerPosition);
             _aiAgainstAi = enemyAIUnitGameObject.GetComponent<Unit>();
 
-            hud.Initialize(_playerUnit, _enemyUnit);
+            hud.Initialize(_playerUnit, _enemyUnit,_aiAgainstAi);
             
             SetState(new BeginState(this));
         }

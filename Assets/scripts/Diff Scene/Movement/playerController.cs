@@ -18,8 +18,8 @@ public class playerController : MonoBehaviour
     private void Start()
     {
 
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        //inventory = new Inventory();
+       // uiInventory.SetInventory(inventory);
        
         
     }

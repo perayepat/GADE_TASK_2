@@ -12,7 +12,7 @@ public class LevelGeneration : MonoBehaviour
     /// index 2 - LRT 
     /// index 3 - LRTB
     /// </summary>
-
+    [Header("Level Generation")]
     int direction;
     public float moveAmount;
 
@@ -27,6 +27,10 @@ public class LevelGeneration : MonoBehaviour
     public LayerMask room;
 
     int downCounter;
+   
+
+
+
 
 
 
@@ -39,7 +43,7 @@ public class LevelGeneration : MonoBehaviour
 
 
         direction = Random.Range(1, 6);
-
+        
 
     }
     private void Update()
@@ -157,4 +161,5 @@ public class LevelGeneration : MonoBehaviour
         }
 
     }
+
 }
