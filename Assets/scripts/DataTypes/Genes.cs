@@ -3,7 +3,7 @@ using System;
 public class Genes<T>
 {
     //Basic gene for each member in the population 
-    public T[] _Genes { get; private set; }
+    public T[] _Genes { get; private set; }//array of actions 
     public float Fitness { get; private set; }
     private Random random;
     private Func<T> getRandomGene;

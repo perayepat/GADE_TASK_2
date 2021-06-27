@@ -20,15 +20,21 @@ public class GeneticAlgorithm<T>
     private Func<T> getRandomGene;
     private Func<int, float> fitnessFunction;
 
-    public GeneticAlgorithm(int populationSize, int dnaSize, Random random, Func<T> getRandomGene, Func<int , float> fitnessFunciton, float mutationRate = 0.01f )
+    public GeneticAlgorithm(int populationSize, int dnaSize, Random random, Func<T> getRandomGene, Func<int, float> fitnessFunction,
+      int elitism, float mutationRate = 0.01f)
     {
         Generation = 1;
-        this.mutationRate = mutationRate;
-        Population = new List<Genes<T>>();
+        Elitism = elitism;
+        mutationRate = mutationRate;
+        Population = new List<Genes<T>>(populationSize); // so that is doesnt have to resize
+        newPopulation = new List<Genes<T>>(populationSize);
         this.random = random;
+        this.dnaSize = dnaSize;
+        this.getRandomGene = getRandomGene;
+        this.fitnessFunction = fitnessFunction;
 
         BestGenes = new T[dnaSize];
-        //create population
+
         for (int i = 0; i < populationSize; i++)
         {
             Population.Add(new Genes<T>(dnaSize, random, getRandomGene, fitnessFunction, shouldInitGenes: true));
