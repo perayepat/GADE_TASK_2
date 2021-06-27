@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CauseOfDeath : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public enum CauseOfEnd 
+{ 
+    Defeated,
+    Timeout,
+    Won,
+    Draw
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

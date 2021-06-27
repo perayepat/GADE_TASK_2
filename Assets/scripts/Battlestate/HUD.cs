@@ -8,14 +8,16 @@ namespace m.m.TurnBasedGame
         [SerializeField] private UnitHUD playerHUD;
         [SerializeField] private UnitHUD enemyHUD;
         [SerializeField] private UnitHUD enemyAiHUD;
+        [SerializeField] private UnitHUD geneticHUD;
         [SerializeField] private Text dialogText;
         [SerializeField] private GameObject PauseScreen;
 
-        public void Initialize(Unit playerUnit, Unit enemyUnit, Unit enemyAI)
+        public void Initialize(Unit playerUnit, Unit enemyUnit, Unit enemyAI, Unit geneticUnit)
         {
             playerHUD.Initialize(playerUnit);
             enemyHUD.Initialize(enemyUnit);
             enemyAiHUD.Initialize(enemyAI);
+            geneticHUD.Initialize(geneticUnit);
         }
 
         public void SetDialogText(string text)

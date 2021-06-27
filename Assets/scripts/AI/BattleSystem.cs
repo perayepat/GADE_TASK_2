@@ -11,6 +11,7 @@ namespace m.m.TurnBasedGame
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject enemyAiPrefab;
+        [SerializeField] private GameObject geneticAiPrefab;
         [SerializeField] private Transform playerPosition;
         [SerializeField] private Transform enemyPosition;
         public GameObject itemsPanel;
@@ -18,6 +19,7 @@ namespace m.m.TurnBasedGame
         private Unit _playerUnit;
         private Unit _enemyUnit;
         private Unit _aiAgainstAi;
+        private Unit _geneticUnit;
         private State _currentState;
         private EnemyTurnState _enemyTurnState;
         private Setdifficulty setdifficulty;
@@ -39,6 +41,7 @@ namespace m.m.TurnBasedGame
         public Unit PlayerUnit => _playerUnit;
         public Unit EnemyUnit => _enemyUnit;
         public Unit EnemyAIUnit => _aiAgainstAi;
+        public Unit GeneticUnit => _geneticUnit;
         public HUD HUD => hud;
 
         public Setdifficulty Setdifficulty => setdifficulty;
@@ -111,10 +114,15 @@ namespace m.m.TurnBasedGame
             var enemyGameObject = Instantiate(enemyPrefab, enemyPosition);
             _enemyUnit = enemyGameObject.GetComponent<Unit>();
 
-            var enemyAIUnitGameObject = Instantiate(enemyAiPrefab, playerPosition);
+            var enemyAIUnitGameObject = Instantiate(enemyAiPrefab, enemyPosition);
             _aiAgainstAi = enemyAIUnitGameObject.GetComponent<Unit>();
 
-            hud.Initialize(_playerUnit, _enemyUnit,_aiAgainstAi);
+            var geneticUnitGameObject = Instantiate(geneticAiPrefab, enemyPosition);
+            _geneticUnit = geneticUnitGameObject.GetComponent<Unit>();
+
+            hud.Initialize(_playerUnit, _enemyUnit,_aiAgainstAi, _geneticUnit);
+
+            
             
             SetState(new BeginState(this));
         }
